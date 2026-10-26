@@ -1,315 +1,1176 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Logobrief nettbutikk · Reach Media x GMERK</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<title>Logobrief nettbutikk · Reach Media × GMERK</title>
 <style>
-  :root{
-    --bg:#f4f3f1;
-    --card:#ffffff;
-    --ink:#141414;
-    --muted:#6f6b66;
-    --line:#e4e1dd;
-    --accent:rgb(255,74,28);
-    --radius:14px;
-    --maxw:720px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{-webkit-text-size-adjust:100%}
-  body{
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-    background:var(--bg);
-    color:var(--ink);
-    line-height:1.55;
-    font-size:16px;
-    -webkit-font-smoothing:antialiased;
-    padding:0 20px;
-  }
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:56px 0 96px}
-  .brand{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:40px}
-  h1{font-weight:300;font-size:2.35rem;line-height:1.12;letter-spacing:-.01em;margin-bottom:20px}
-  h1 span{color:var(--accent)}
-  .intro{color:var(--muted);font-size:1.02rem;max-width:56ch;margin-bottom:8px}
-  .intro + .intro{margin-top:14px}
-  form{margin-top:48px}
-  section{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:32px 30px;
-    margin-bottom:20px;
-  }
-  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
-  .sec-num{font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.08em;padding-top:3px;min-width:22px}
-  .sec-title{font-weight:400;font-size:1.28rem;letter-spacing:-.01em}
-  .sec-sub{color:var(--muted);font-size:.9rem;margin:-14px 0 22px 36px}
-  .phase-label{
-    display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--muted);border:1px solid var(--line);border-radius:999px;
-    padding:6px 14px;margin:44px 0 4px 2px;background:var(--card);
-  }
-  .field{margin-bottom:22px}
-  .field:last-child{margin-bottom:0}
-  label.q{display:block;font-size:.98rem;margin-bottom:9px;font-weight:500}
-  .hint{color:var(--muted);font-size:.85rem;font-weight:400;margin-top:2px}
-  input[type=text],input[type=tel],input[type=email],input[type=url],textarea{
-    width:100%;font-family:inherit;font-size:.98rem;color:var(--ink);
-    background:#fbfaf9;border:1px solid var(--line);border-radius:9px;
-    padding:12px 14px;transition:border-color .15s,background .15s;
-  }
-  textarea{resize:vertical;min-height:82px}
-  input:focus,textarea:focus{outline:none;border-color:var(--accent);background:#fff}
-  input::placeholder,textarea::placeholder{color:#b3aea8}
+@font-face { font-family: 'NeueHaas'; src: url("fonts/NeueHaasDisplayLight.ttf") format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'NeueHaas'; src: url("fonts/NeueHaasDisplayLightItalic.ttf") format('truetype'); font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: 'NeueHaas'; src: url("fonts/NeueHaasDisplayRoman.ttf") format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'NeueHaas'; src: url("fonts/NeueHaasDisplayMedium.ttf") format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  --white: #FFFFFF;
+  --grey-light: #BEC0CD;
+  --grey-mid: #7C809B;
+  --grey-dark: #3E404E;
+  --black: #000000;
+  --orange: #FF4A1C;
+  --red: #B8141D;
+  --bg-secondary: #F5F5F5;
+  --bg-fill: #FAFAFA;
 
-  .scale{display:flex;gap:6px;flex-wrap:wrap;align-items:stretch;margin-top:4px}
-  .scale .ends{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);width:100%;margin-bottom:8px}
-  .opt{position:relative;flex:1 1 auto}
-  .opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
-  .opt span{
-    display:block;text-align:center;font-size:.9rem;padding:10px 8px;
-    border:1px solid var(--line);border-radius:8px;background:#fbfaf9;cursor:pointer;
-    transition:.12s;line-height:1.2;
-  }
-  .opt input:checked + span{border-color:var(--accent);background:var(--accent);color:#fff}
-  .opt input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+  --hairline: 0.5px solid #E4E4E4;
+  --hairline-dark: 0.5px solid rgba(255,255,255,0.18);
+  --rule-strong: 1.5px solid #000;
+  --rule-orange: 1.5px solid #FF4A1C;
 
-  .stack{display:flex;flex-direction:column;gap:8px}
-  .stack .opt{flex:none}
-  .stack .opt span{text-align:left}
+  --font: 'NeueHaas', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --pad: 44px;
+}
 
-  .checks{display:flex;flex-wrap:wrap;gap:8px}
-  .checks .opt{flex:0 1 auto}
-  .checks .opt span{padding:10px 16px}
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: #ECECEC;
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
 
-  .btn{
-    appearance:none;border:none;cursor:pointer;font-family:inherit;
-    background:var(--accent);color:#fff;font-size:1rem;font-weight:500;
-    padding:15px 40px;border-radius:999px;margin-top:12px;
-    transition:transform .12s,opacity .15s;
-  }
-  .btn:hover{transform:translateY(-1px)}
-  .btn:active{transform:translateY(0)}
-  .btn:disabled{opacity:.5;cursor:default;transform:none}
+/* ============================================================
+   DOC SHELL
+   ============================================================ */
+.doc {
+  max-width: 1120px;
+  margin: 0 auto;
+  background: var(--white);
+  border-left: var(--hairline);
+  border-right: var(--hairline);
+}
+section { border-bottom: var(--hairline); }
 
-  .foot{color:var(--muted);font-size:.85rem;margin-top:18px}
-  .hp{position:absolute;left:-9999px;top:-9999px}
+/* TOPBAR */
+.topbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 18px var(--pad);
+  border-bottom: var(--hairline);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey-mid);
+}
+.topbar .brand {
+  display: flex; align-items: center; gap: 12px;
+  color: var(--black); font-weight: 500;
+}
+.topbar .brand-mark { width: 22px; height: 22px; }
+.topbar .brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.topbar .meta-center { text-align: center; }
 
-  #done{display:none;text-align:center;padding:70px 20px}
-  #done h2{font-weight:300;font-size:2rem;margin-bottom:14px}
-  #done p{color:var(--muted);max-width:44ch;margin:0 auto}
+/* ============================================================
+   COVER
+   ============================================================ */
+.cover {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 720px;
+}
+.cover-left {
+  padding: 88px var(--pad) 64px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  border-right: var(--hairline);
+}
+.cover-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey-mid);
+  display: flex; gap: 16px; align-items: center;
+}
+.cover-eyebrow .dot {
+  width: 8px; height: 8px; background: var(--orange); display: inline-block;
+}
+.cover h1 {
+  font-size: clamp(56px, 7.5vw, 104px);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  color: var(--black);
+  margin-bottom: 36px;
+}
+.cover h1 em { font-style: italic; font-weight: 300; color: var(--orange); }
+.cover-lede {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--grey-mid);
+  max-width: 460px;
+  margin-bottom: 36px;
+}
+.cover-lede strong { color: var(--black); font-weight: 500; }
+.cover-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: var(--hairline);
+  padding-top: 24px;
+  gap: 16px;
+}
+.cover-meta-item .label {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--grey-light); margin-bottom: 6px;
+}
+.cover-meta-item .val { font-size: 14px; color: var(--black); }
 
-  @media(max-width:560px){
-    .wrap{padding:40px 0 72px}
-    h1{font-size:1.9rem}
-    section{padding:26px 20px}
-    .sec-sub{margin-left:0}
-    .scale{gap:5px}
-    .opt span{font-size:.82rem;padding:9px 4px}
-  }
+.cover-right {
+  background: var(--black);
+  color: var(--white);
+  padding: 88px var(--pad) 64px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative;
+}
+.cover-right .index-label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.cover-right .index {
+  margin-top: 18px;
+  border-top: var(--hairline-dark);
+}
+.cover-right .index-row {
+  display: grid;
+  grid-template-columns: 36px 1fr auto;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: var(--hairline-dark);
+  font-size: 13px;
+  align-items: baseline;
+}
+.cover-right .index-row .n {
+  font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.1em;
+}
+.cover-right .index-row .t { color: var(--white); }
+.cover-right .index-row .p {
+  font-size: 11px; color: rgba(255,255,255,0.4);
+}
+.cover-bottom-meta {
+  display: flex; justify-content: space-between;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-top: 24px;
+}
+
+/* ============================================================
+   COVER INSTRUCTIONS BAND
+   ============================================================ */
+.instructions {
+  padding: 44px var(--pad);
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  border-bottom: var(--hairline);
+  gap: 0;
+}
+.instructions .col-num {
+  font-size: 11px; letter-spacing: 0.12em; color: var(--grey-mid);
+  border-right: var(--hairline); padding-right: 24px;
+}
+.instructions .col-lead {
+  padding: 0 48px;
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--black);
+  border-right: var(--hairline);
+}
+.instructions .col-lead em { font-style: italic; color: var(--orange); }
+.instructions .col-body {
+  padding-left: 48px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--grey-mid);
+}
+.instructions .col-body p + p { margin-top: 10px; }
+.instructions .col-body strong { color: var(--black); font-weight: 500; }
+
+/* ============================================================
+   SECTION CHROME
+   ============================================================ */
+.section-head {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  border-bottom: var(--hairline);
+}
+.section-num {
+  padding: 140px 0 48px var(--pad);
+  border-right: var(--hairline);
+  font-size: 11px; letter-spacing: 0.12em; color: var(--grey-mid);
+}
+.section-title-col {
+  padding: 140px 48px 48px;
+  border-right: var(--hairline);
+}
+.section-title {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+  color: var(--black);
+}
+.section-title em { font-style: italic; font-weight: 300; color: var(--orange); }
+.section-eyebrow {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--grey-mid); margin-bottom: 14px;
+}
+.section-intro {
+  padding: 140px var(--pad) 48px 48px;
+  display: flex; align-items: flex-end;
+}
+.section-intro p {
+  font-size: 15px; line-height: 1.7; color: var(--grey-mid); max-width: 380px;
+}
+.section-intro p strong { color: var(--black); font-weight: 500; }
+
+/* ============================================================
+   FORM FIELDS
+   ============================================================ */
+.fields { padding: 0; }
+.field {
+  display: grid;
+  grid-template-columns: 80px 280px 1fr;
+  border-bottom: var(--hairline);
+  align-items: stretch;
+}
+.field .f-num {
+  padding: 28px 0 28px var(--pad);
+  border-right: var(--hairline);
+  font-size: 11px; letter-spacing: 0.12em; color: var(--grey-mid);
+}
+.field .f-label {
+  padding: 28px 36px 28px 48px;
+  border-right: var(--hairline);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--black);
+  letter-spacing: -0.005em;
+  display: flex; flex-direction: column; justify-content: flex-start; gap: 8px;
+}
+.field .f-label .hint {
+  font-size: 12px; font-weight: 400; color: var(--grey-mid); font-style: italic;
+  line-height: 1.5; letter-spacing: 0;
+}
+.field .f-input {
+  padding: 0;
+  display: flex; align-items: stretch;
+}
+.field .f-input.is-block { display: block; }
+
+/* Inputs */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+input[type="date"],
+textarea {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: var(--font);
+  font-size: 16px;
+  color: var(--black);
+  letter-spacing: -0.005em;
+  padding: 28px var(--pad) 28px 36px;
+  resize: none;
+  outline: none;
+  line-height: 1.5;
+}
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  background: var(--bg-fill);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--grey-light);
+  font-style: italic;
+}
+textarea {
+  min-height: 110px;
+  padding-top: 26px;
+  padding-bottom: 26px;
+}
+textarea.tall { min-height: 180px; }
+textarea.xtall { min-height: 240px; }
+
+/* Single-row inline pair (4-col) used for contact */
+.field.split .f-input { flex-direction: column; }
+.field.split .f-input .row {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  border-bottom: var(--hairline);
+}
+.field.split .f-input .row:last-child { border-bottom: none; }
+.field.split .f-input .row > * + * { border-left: var(--hairline); }
+.field.split input { padding: 22px var(--pad) 22px 36px; }
+
+/* ============================================================
+   CHECKBOX / RADIO ROWS
+   ============================================================ */
+.options-list {
+  padding: 12px 36px 22px;
+  display: flex; flex-direction: column;
+}
+.opt {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: var(--hairline);
+  font-size: 15px;
+  color: var(--grey-dark);
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.45;
+}
+.opt:last-child { border-bottom: none; }
+.opt input { position: absolute; opacity: 0; pointer-events: none; }
+.opt .box {
+  width: 16px; height: 16px;
+  border: 1px solid var(--black);
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+  background: var(--white);
+  transition: background 200ms cubic-bezier(0.25,0.1,0.25,1);
+}
+.opt input:checked + .box {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+.opt input:checked + .box::after {
+  content: '';
+  position: absolute;
+  left: 4px; top: 0px;
+  width: 5px; height: 10px;
+  border: solid var(--white);
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+}
+.opt.radio .box { border-radius: 50%; }
+.opt.radio input:checked + .box {
+  background: var(--white);
+}
+.opt.radio input:checked + .box::after {
+  content: '';
+  left: 50%; top: 50%;
+  width: 8px; height: 8px;
+  background: var(--orange);
+  border: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.opt:hover .box { border-color: var(--orange); }
+.opt strong { color: var(--black); font-weight: 500; }
+
+/* Inline option with inline note input */
+.opt .inline-input {
+  margin-left: auto;
+  border: none;
+  border-bottom: var(--hairline);
+  background: transparent;
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--black);
+  padding: 4px 8px;
+  min-width: 220px;
+  outline: none;
+}
+.opt .inline-input:focus { border-bottom-color: var(--orange); }
+
+/* ============================================================
+   CHARACTER SCALES (Sec 04)
+   ============================================================ */
+.scales { padding: 0; }
+.scale-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  border-bottom: var(--hairline);
+}
+.scale-row:last-child { border-bottom: none; }
+.scale-row .s-num {
+  padding: 36px 0 36px var(--pad);
+  border-right: var(--hairline);
+  font-size: 11px; letter-spacing: 0.12em; color: var(--grey-mid);
+}
+.scale-body {
+  padding: 32px var(--pad) 32px 48px;
+  display: grid;
+  grid-template-columns: 1fr 360px 1fr;
+  align-items: center;
+  gap: 32px;
+}
+.scale-body .left-label,
+.scale-body .right-label {
+  font-size: 16px;
+  color: var(--black);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.scale-body .right-label { text-align: right; }
+.scale-body .pole {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey-mid);
+  display: block;
+  margin-top: 4px;
+  font-weight: 400;
+}
+.scale-body .right-label .pole { text-align: right; }
+
+.scale {
+  position: relative;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.scale::before {
+  content: '';
+  position: absolute;
+  left: 6px; right: 6px;
+  height: 1px;
+  background: var(--black);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.scale .pt {
+  width: 18px; height: 18px;
+  border: 1px solid var(--black);
+  background: var(--white);
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.25,0.1,0.25,1);
+  border-radius: 50%;
+}
+.scale .pt:hover { background: var(--grey-light); }
+.scale .pt.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  transform: scale(1.25);
+}
+
+/* ============================================================
+   GROUP BLOCK (used for multi-checkbox sections w/ heading)
+   ============================================================ */
+.group-row {
+  display: grid;
+  grid-template-columns: 80px 280px 1fr;
+  border-bottom: var(--hairline);
+}
+.group-row .g-num {
+  padding: 36px 0 36px var(--pad);
+  border-right: var(--hairline);
+  font-size: 11px; letter-spacing: 0.12em; color: var(--grey-mid);
+}
+.group-row .g-label {
+  padding: 36px 36px 36px 48px;
+  border-right: var(--hairline);
+}
+.group-row .g-label .title {
+  font-size: 15px; font-weight: 500; color: var(--black);
+  letter-spacing: -0.005em;
+  margin-bottom: 8px;
+}
+.group-row .g-label .hint {
+  font-size: 12px; color: var(--grey-mid); font-style: italic;
+  line-height: 1.6;
+}
+.group-row .g-body {
+  padding: 0;
+}
+
+/* ============================================================
+   FOOTER — CLOSING
+   ============================================================ */
+.actions-bar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 36px var(--pad);
+  border-bottom: var(--hairline);
+  gap: 24px;
+}
+.actions-bar .save-status {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--grey-mid);
+  display: flex; align-items: center; gap: 12px;
+}
+.actions-bar .save-status .dot {
+  width: 8px; height: 8px; background: var(--orange);
+  display: inline-block; border-radius: 50%;
+}
+.actions {
+  display: flex; gap: 0;
+}
+.btn {
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--white);
+  border: 1px solid var(--black);
+  padding: 14px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 200ms cubic-bezier(0.25,0.1,0.25,1);
+}
+.btn + .btn { border-left: none; }
+.btn:hover { background: var(--black); color: var(--white); }
+.btn.primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
+.btn.primary:hover { background: var(--black); border-color: var(--black); }
+.btn.ghost { color: var(--grey-mid); border-color: var(--grey-light); }
+.btn.ghost:hover { color: var(--white); background: var(--grey-mid); border-color: var(--grey-mid); }
+
+.closing {
+  background: var(--black);
+  color: var(--white);
+  padding: 96px var(--pad) 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+}
+.closing-eyebrow {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-bottom: 24px;
+}
+.closing-quote {
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-weight: 300; letter-spacing: -0.02em; line-height: 1.25;
+  color: var(--white); font-style: italic;
+}
+.closing-quote .accent { color: var(--orange); font-style: italic; }
+.closing-right { display: flex; flex-direction: column; justify-content: space-between; }
+.signature { border-top: var(--hairline-dark); padding-top: 28px; }
+.signature .label {
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-bottom: 16px;
+}
+.signature .name {
+  font-size: 28px; font-weight: 300; letter-spacing: -0.02em;
+  margin-bottom: 14px; color: var(--white);
+}
+.signature .contact {
+  font-size: 12px; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.6); line-height: 1.9;
+}
+.closing-meta {
+  display: flex; justify-content: space-between;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  border-top: var(--hairline-dark); padding-top: 24px; margin-top: 36px;
+}
+
+/* ============================================================
+   FLOATING ACTION BAR (sticky)
+   ============================================================ */
+.float-bar {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  display: flex; gap: 0;
+  z-index: 50;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  :root { --pad: 24px; }
+  .cover { grid-template-columns: 1fr; }
+  .cover-left, .cover-right { border-right: none; }
+  .cover-right { border-top: var(--hairline); }
+  .instructions { grid-template-columns: 60px 1fr; }
+  .instructions .col-body { grid-column: 1 / -1; border-top: var(--hairline); padding: 28px 0 0 0; }
+  .instructions .col-lead { border-right: none; padding: 0 0 24px 24px; }
+  .section-head { grid-template-columns: 60px 1fr; }
+  .section-intro { grid-column: 1 / -1; border-top: var(--hairline); padding: 24px var(--pad); }
+  .field, .group-row { grid-template-columns: 60px 1fr; }
+  .field .f-label, .group-row .g-label { border-right: none; padding: 22px 24px 12px; }
+  .field .f-input { border-top: var(--hairline); grid-column: 1 / -1; }
+  .group-row .g-body { border-top: var(--hairline); grid-column: 1 / -1; }
+  .field.split .f-input .row { grid-template-columns: 1fr; }
+  .field.split .f-input .row > * + * { border-left: none; border-top: var(--hairline); }
+  .scale-row { grid-template-columns: 60px 1fr; }
+  .scale-body { grid-template-columns: 1fr; gap: 12px; }
+  .scale-body .right-label, .scale-body .right-label .pole { text-align: left; }
+  .closing { grid-template-columns: 1fr; gap: 32px; padding: 56px var(--pad); }
+  .float-bar { right: 12px; bottom: 12px; }
+  input, textarea { padding-left: 24px !important; padding-right: 24px !important; }
+}
+
+/* ============================================================
+   PRINT — A4
+   ============================================================ */
+@page { size: A4; margin: 12mm 10mm; }
+@media print {
+  html, body { background: var(--white); }
+  .doc { max-width: 100%; border: none; }
+  body { font-size: 11pt; }
+  .topbar, .float-bar, .actions-bar { display: none !important; }
+  section { page-break-inside: avoid; }
+  .cover { page-break-after: always; min-height: auto; }
+  .cover-right, .closing { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .field, .group-row, .scale-row { page-break-inside: avoid; }
+  .closing { page-break-before: always; }
+  .scale .pt.active { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .opt input:checked + .box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  input, textarea { background: transparent !important; }
+  /* Make text visible in print */
+  textarea { height: auto; min-height: 0; overflow: visible; }
+}
+/* Mobile: no horizontal scroll */
+@media (max-width: 900px) {
+  html, body { overflow-x: hidden; }
+  .doc { width: 100%; }
+  .doc *, .cover > *, .section-head > *, .field > *, .group-row > * { min-width: 0; }
+  .topbar { grid-template-columns: auto 1fr; padding: 16px var(--pad); }
+  .topbar .meta-center { text-align: right; }
+  .topbar > div:last-child { display: none; }
+  .cover-left, .cover-right { padding: 56px var(--pad) 40px; }
+  .cover-meta { grid-template-columns: 1fr 1fr; }
+  .cover-bottom-meta { flex-direction: column; gap: 8px; }
+  .instructions { padding: 32px var(--pad); grid-template-columns: 1fr; }
+  .instructions .col-num { border-right: none; padding: 0 0 16px; }
+  .instructions .col-lead { padding: 0 0 24px; }
+  .section-num, .section-title-col { padding-top: 64px; padding-bottom: 32px; }
+  .section-title-col { padding-left: 20px; padding-right: 20px; }
+  .actions-bar { grid-template-columns: 1fr; }
+  .actions { flex-wrap: wrap; }
+  .closing-meta { flex-direction: column; gap: 8px; }
+}
+
+/* Extra: sent state + field note */
+.sent { display:none; padding: 120px var(--pad); text-align:left; }
+.sent h2 { font-size: clamp(40px,5vw,72px); font-weight:300; letter-spacing:-0.03em; line-height:1; margin-bottom:24px; }
+.sent h2 em { font-style:italic; color: var(--orange); }
+.sent p { font-size:18px; line-height:1.7; color: var(--grey-mid); max-width:520px; }
+body.is-sent .doc > section:not(.sent-wrap), body.is-sent .float-bar { display:none; }
+body.is-sent .sent { display:block; }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <div class="brand">GMERK</div>
+<div class="doc">
 
-  <div id="formview">
-    <h1>Logo til nettbutikken</h1>
-    <p class="intro">Takk for at du tar deg tid. Her er noen korte spørsmål om nettbutikken og hva dere ser for dere. Med svarene kan jeg gi dere en presis pris og et konkret forslag.</p>
-    <p class="intro">Det tar 5-10 minutter. Svar så kort du vil, og hopp over det dere ikke vet ennå.</p>
-
-    <form id="brief" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="d3efca1c-05c8-4d2c-bbbd-48b705f7e4d5">
-      <input type="hidden" name="subject" value="Reach Media: logobrief nettbutikk besvart">
-      <input type="hidden" name="from_name" value="Reach Media brief-skjema">
-      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
-
-      <section>
-        <div class="sec-head"><div class="sec-num">01</div><div class="sec-title">Kontakt</div></div>
-        <div class="sec-sub">Ferdig utfylt. Rett opp om noe er feil.</div>
-        <div class="field"><label class="q">Navn</label><input type="text" name="Navn" value="Bendik Tannum"></div>
-        <div class="field"><label class="q">Bedrift</label><input type="text" name="Bedrift" value="Reach Media"></div>
-        <div class="field"><label class="q">E-post</label><input type="email" name="Epost" value="bendik@reachmedia.no"></div>
-        <div class="field"><label class="q">Telefon</label><input type="tel" name="Telefon" value="45 86 26 46"></div>
-      </section>
-
-      <section>
-        <div class="sec-head"><div class="sec-num">02</div><div class="sec-title">Nettbutikken</div></div>
-        <div class="field">
-          <label class="q">Hva skal nettbutikken selge?</label>
-          <textarea name="Produkter" placeholder="Produkter, kategori, prisnivå"></textarea>
-        </div>
-        <div class="field">
-          <label class="q">Hvem er kunden?</label>
-          <textarea name="Kunde" placeholder="Hvem kjøper, og hvorfor hos dere?"></textarea>
-        </div>
-        <div class="field">
-          <label class="q">Har butikken et navn?</label>
-          <div class="stack">
-            <label class="opt"><input type="radio" name="Navn_status" value="Navnet er klart"><span>Ja, navnet er klart</span></label>
-            <label class="opt"><input type="radio" name="Navn_status" value="Har forslag"><span>Vi har noen forslag</span></label>
-            <label class="opt"><input type="radio" name="Navn_status" value="Trenger hjelp med navn"><span>Nei, vi trenger hjelp med navn også</span></label>
-          </div>
-        </div>
-        <div class="field"><label class="q">Navn eller forslag <span class="hint">Og domene, hvis dere har det.</span></label><input type="text" name="Navn_forslag"></div>
-        <div class="field">
-          <label class="q">Plattform</label>
-          <div class="checks">
-            <label class="opt"><input type="radio" name="Plattform" value="Shopify"><span>Shopify</span></label>
-            <label class="opt"><input type="radio" name="Plattform" value="WooCommerce"><span>WooCommerce</span></label>
-            <label class="opt"><input type="radio" name="Plattform" value="Annen"><span>Annen</span></label>
-            <label class="opt"><input type="radio" name="Plattform" value="Ikke bestemt"><span>Ikke bestemt</span></label>
-          </div>
-        </div>
-        <div class="field"><label class="q">Når skal butikken åpne?</label><input type="text" name="Lansering" placeholder="f.eks. januar 2027"></div>
-      </section>
-
-      <section>
-        <div class="sec-head"><div class="sec-num">03</div><div class="sec-title">Karakter</div></div>
-        <div class="sec-sub">Sett kryss der dere ser merket.</div>
-
-        <div class="field"><div class="scale">
-          <div class="ends"><span>Klassisk</span><span>Moderne</span></div>
-          <label class="opt"><input type="radio" name="Klassisk_moderne" value="1"><span>1</span></label>
-          <label class="opt"><input type="radio" name="Klassisk_moderne" value="2"><span>2</span></label>
-          <label class="opt"><input type="radio" name="Klassisk_moderne" value="3"><span>3</span></label>
-          <label class="opt"><input type="radio" name="Klassisk_moderne" value="4"><span>4</span></label>
-          <label class="opt"><input type="radio" name="Klassisk_moderne" value="5"><span>5</span></label>
-        </div></div>
-
-        <div class="field"><div class="scale">
-          <div class="ends"><span>Enkelt og rent</span><span>Rikt og detaljert</span></div>
-          <label class="opt"><input type="radio" name="Enkel_rik" value="1"><span>1</span></label>
-          <label class="opt"><input type="radio" name="Enkel_rik" value="2"><span>2</span></label>
-          <label class="opt"><input type="radio" name="Enkel_rik" value="3"><span>3</span></label>
-          <label class="opt"><input type="radio" name="Enkel_rik" value="4"><span>4</span></label>
-          <label class="opt"><input type="radio" name="Enkel_rik" value="5"><span>5</span></label>
-        </div></div>
-
-        <div class="field"><div class="scale">
-          <div class="ends"><span>Rolig</span><span>Energisk</span></div>
-          <label class="opt"><input type="radio" name="Rolig_energisk" value="1"><span>1</span></label>
-          <label class="opt"><input type="radio" name="Rolig_energisk" value="2"><span>2</span></label>
-          <label class="opt"><input type="radio" name="Rolig_energisk" value="3"><span>3</span></label>
-          <label class="opt"><input type="radio" name="Rolig_energisk" value="4"><span>4</span></label>
-          <label class="opt"><input type="radio" name="Rolig_energisk" value="5"><span>5</span></label>
-        </div></div>
-
-        <div class="field"><div class="scale">
-          <div class="ends"><span>Eksklusiv</span><span>Folkelig</span></div>
-          <label class="opt"><input type="radio" name="Eksklusiv_folkelig" value="1"><span>1</span></label>
-          <label class="opt"><input type="radio" name="Eksklusiv_folkelig" value="2"><span>2</span></label>
-          <label class="opt"><input type="radio" name="Eksklusiv_folkelig" value="3"><span>3</span></label>
-          <label class="opt"><input type="radio" name="Eksklusiv_folkelig" value="4"><span>4</span></label>
-          <label class="opt"><input type="radio" name="Eksklusiv_folkelig" value="5"><span>5</span></label>
-        </div></div>
-
-        <div class="field">
-          <label class="q">Tre ord merket skal føles som</label>
-          <input type="text" name="Tre_ord" placeholder="f.eks. trygg, leken, tydelig">
-        </div>
-      </section>
-
-      <section>
-        <div class="sec-head"><div class="sec-num">04</div><div class="sec-title">Visuell retning</div></div>
-        <div class="field">
-          <label class="q">2-3 merker eller nettbutikker dere liker <span class="hint">Lenker eller navn. Gjerne fra en helt annen bransje.</span></label>
-          <textarea name="Referanser"></textarea>
-        </div>
-        <div class="field">
-          <label class="q">Noe dere vil styre unna?</label>
-          <textarea name="Anti_referanser" placeholder="Uttrykk, farger eller merker dere ikke liker"></textarea>
-        </div>
-        <div class="field">
-          <label class="q">Trenger dere et eget ikon som kan stå alene? <span class="hint">Til profilbilde, favicon, emballasje.</span></label>
-          <div class="stack">
-            <label class="opt"><input type="radio" name="Ikon" value="Ja"><span>Ja, vi ønsker et eget ikon</span></label>
-            <label class="opt"><input type="radio" name="Ikon" value="Bare navnetrekk"><span>Nei, et navnetrekk holder</span></label>
-            <label class="opt"><input type="radio" name="Ikon" value="Usikker"><span>Usikker, anbefal meg</span></label>
-          </div>
-        </div>
-        <div class="field"><label class="q">Farger dere ønsker eller vil unngå?</label><input type="text" name="Farger"></div>
-      </section>
-
-      <section>
-        <div class="sec-head"><div class="sec-num">05</div><div class="sec-title">Logoen skal brukes på</div></div>
-        <div class="checks">
-          <label class="opt"><input type="checkbox" name="Bruk_nettbutikk" value="Nettbutikk" checked><span>Nettbutikk</span></label>
-          <label class="opt"><input type="checkbox" name="Bruk_instagram" value="Instagram"><span>Instagram</span></label>
-          <label class="opt"><input type="checkbox" name="Bruk_facebook" value="Facebook"><span>Facebook</span></label>
-          <label class="opt"><input type="checkbox" name="Bruk_tiktok" value="TikTok"><span>TikTok</span></label>
-          <label class="opt"><input type="checkbox" name="Bruk_emballasje" value="Emballasje"><span>Emballasje</span></label>
-          <label class="opt"><input type="checkbox" name="Bruk_klistremerker" value="Klistremerker"><span>Klistremerker</span></label>
-          <label class="opt"><input type="checkbox" name="Bruk_klaer" value="Klær"><span>Klær</span></label>
-        </div>
-        <div class="field" style="margin-top:16px"><label class="q">Andre flater?</label><input type="text" name="Bruk_annet"></div>
-      </section>
-
-      <section>
-        <div class="sec-head"><div class="sec-num">06</div><div class="sec-title">Omfang</div></div>
-        <div class="field">
-          <label class="q">Hva trenger dere?</label>
-          <div class="stack">
-            <label class="opt"><input type="radio" name="Omfang" value="Bare logo"><span>Bare logo</span></label>
-            <label class="opt"><input type="radio" name="Omfang" value="Logo + enkel profil"><span>Logo og en enkel profil (farger, fonter, et par maler)</span></label>
-            <label class="opt"><input type="radio" name="Omfang" value="Usikker"><span>Usikker, anbefal meg</span></label>
-          </div>
-        </div>
-        <div class="field">
-          <label class="q">Har dere en budsjettramme? <span class="hint">Eks. mva. Hjelper meg å foreslå riktig omfang.</span></label>
-          <div class="stack">
-            <label class="opt"><input type="radio" name="Budsjett" value="Under 6 000"><span>Under 6 000 kr</span></label>
-            <label class="opt"><input type="radio" name="Budsjett" value="6 000-8 000"><span>6 000-8 000 kr</span></label>
-            <label class="opt"><input type="radio" name="Budsjett" value="8 000-12 000"><span>8 000-12 000 kr</span></label>
-            <label class="opt"><input type="radio" name="Budsjett" value="Over 12 000"><span>Over 12 000 kr</span></label>
-            <label class="opt"><input type="radio" name="Budsjett" value="Vet ikke"><span>Vet ikke ennå</span></label>
-          </div>
-        </div>
-        <div class="field"><label class="q">Hvem tar den endelige avgjørelsen?</label><input type="text" name="Beslutning"></div>
-        <div class="field"><label class="q">Noe annet jeg bør vite?</label><textarea name="Kommentar"></textarea></div>
-      </section>
-
-      <button type="submit" class="btn" id="submitBtn">Send inn</button>
-      <p class="foot">Svarene går rett til Kacper i GMERK. Spørsmål? Ring 968 12 054.</p>
-    </form>
+  <div class="topbar">
+    <div class="brand">
+      <span class="brand-mark"><img src="gmerk_logo.png" alt="GMERK"></span>
+      <span>GMERK</span>
+    </div>
+    <div class="meta-center">Logobrief · Nettbutikk</div>
+    <div>2026</div>
   </div>
 
-  <div id="done">
-    <h2>Takk, Bendik.</h2>
-    <p>Svarene er mottatt. Jeg går gjennom dem og sender dere et konkret forslag med pris.</p>
-  </div>
+  <section class="cover">
+    <div class="cover-left">
+      <div class="cover-eyebrow">
+        <span class="dot"></span>
+        <span>Reach Media</span>
+        <span>·</span>
+        <span>Logobrief</span>
+      </div>
+
+      <div>
+        <h1>Logo til<br>nettbutikken<em>.</em></h1>
+        <p class="cover-lede">Noen korte spørsmål om <strong>nettbutikken</strong> og hva dere ser for dere. Med svarene kan jeg gi dere en presis pris og et konkret forslag.</p>
+      </div>
+
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <div class="label">Oppdrag</div>
+          <div class="val">Logo til nettbutikk</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="label">Til</div>
+          <div class="val">Bendik Tannum</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="label">Tid</div>
+          <div class="val">ca. 10 minutter</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-right">
+      <div>
+        <div class="index-label">Innhold</div>
+        <div class="index">
+          <div class="index-row"><span class="n">01</span><span class="t">Kontakt</span><span class="p"></span></div>
+          <div class="index-row"><span class="n">02</span><span class="t">Nettbutikken</span><span class="p"></span></div>
+          <div class="index-row"><span class="n">03</span><span class="t">Karakter</span><span class="p"></span></div>
+          <div class="index-row"><span class="n">04</span><span class="t">Visuell retning</span><span class="p"></span></div>
+          <div class="index-row"><span class="n">05</span><span class="t">Hvor logoen skal brukes</span><span class="p"></span></div>
+          <div class="index-row"><span class="n">06</span><span class="t">Omfang og budsjett</span><span class="p"></span></div>
+        </div>
+      </div>
+
+      <div class="cover-bottom-meta">
+        <span>GMERK.NO</span>
+        <span>SMÅ FIRMAER, STORE INNTRYKK.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="instructions">
+    <div class="col-num">00</div>
+    <div class="col-lead">
+      Vet du ikke noe ennå, la feltet stå tomt. <em>Det finner vi ut av sammen.</em>
+    </div>
+    <div class="col-body">
+      <p>Svarene lagres <strong>automatisk</strong> i nettleseren din, så du kan ta en pause og komme tilbake.</p>
+      <p>Når du er ferdig, trykker du <strong>«Send inn»</strong> nederst. Du kan også laste ned en PDF-kopi.</p>
+    </div>
+  </section>
+
+  <!-- 01 KONTAKT -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">01</div>
+      <div class="section-title-col">
+        <div class="section-eyebrow">Del 01</div>
+        <h2 class="section-title"><em>Kontakt.</em></h2>
+      </div>
+      <div class="section-intro">
+        <p>Ferdig utfylt. Rett opp hvis noe er feil, eller hvis en annen person skal være kontakt i prosjektet.</p>
+      </div>
+    </div>
+    <div class="fields">
+      <div class="field split">
+        <div class="f-num">01.1</div>
+        <div class="f-label">Kontaktperson<span class="hint">Den vi snakker med underveis</span></div>
+        <div class="f-input is-block">
+          <div class="row">
+            <input type="text" data-save="navn" value="Bendik Tannum" placeholder="Navn">
+            <input type="text" data-save="bedrift" value="Reach Media" placeholder="Bedrift">
+          </div>
+          <div class="row">
+            <input type="tel" data-save="telefon" value="45 86 26 46" placeholder="Telefon">
+            <input type="email" data-save="epost" value="bendik@reachmedia.no" placeholder="E-post">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 NETTBUTIKKEN -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">02</div>
+      <div class="section-title-col">
+        <div class="section-eyebrow">Del 02</div>
+        <h2 class="section-title"><em>Nettbutikken.</em></h2>
+      </div>
+      <div class="section-intro">
+        <p>Jo mer konkret, jo bedre. Logoen skal fungere for <strong>de som skal handle</strong>, ikke bare se fin ut.</p>
+      </div>
+    </div>
+    <div class="fields">
+      <div class="field">
+        <div class="f-num">02.1</div>
+        <div class="f-label">Hva skal dere selge?<span class="hint">Produkter, kategori, prisnivå</span></div>
+        <div class="f-input is-block"><textarea data-save="produkter" placeholder="f.eks. turutstyr i mellomprisklassen"></textarea></div>
+      </div>
+      <div class="field">
+        <div class="f-num">02.2</div>
+        <div class="f-label">Hvem er kunden?<span class="hint">Hvem kjøper, og hvorfor hos dere?</span></div>
+        <div class="f-input is-block"><textarea data-save="kunde" placeholder="Alder, interesser, hva de er opptatt av"></textarea></div>
+      </div>
+      <div class="field">
+        <div class="f-num">02.3</div>
+        <div class="f-label">Har butikken et navn?</div>
+        <div class="f-input is-block">
+          <div class="options-list">
+            <label class="opt radio"><input type="radio" name="navn_status" data-save="navn_status" value="Navnet er klart"><span class="box"></span><span>Ja, navnet er klart</span></label>
+            <label class="opt radio"><input type="radio" name="navn_status" data-save="navn_status" value="Har noen forslag"><span class="box"></span><span>Vi har noen forslag</span></label>
+            <label class="opt radio"><input type="radio" name="navn_status" data-save="navn_status" value="Trenger hjelp med navn"><span class="box"></span><span>Nei, vi trenger hjelp med navn også</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="f-num">02.4</div>
+        <div class="f-label">Navn eller forslag<span class="hint">Og domene, hvis dere har det</span></div>
+        <div class="f-input"><input type="text" data-save="navn_forslag" placeholder="Navn, forslag, domene"></div>
+      </div>
+      <div class="field">
+        <div class="f-num">02.5</div>
+        <div class="f-label">Plattform</div>
+        <div class="f-input is-block">
+          <div class="options-list">
+            <label class="opt radio"><input type="radio" name="plattform" data-save="plattform" value="Shopify"><span class="box"></span><span>Shopify</span></label>
+            <label class="opt radio"><input type="radio" name="plattform" data-save="plattform" value="WooCommerce"><span class="box"></span><span>WooCommerce</span></label>
+            <label class="opt radio"><input type="radio" name="plattform" data-save="plattform" value="Annen"><span class="box"></span><span>Annen</span></label>
+            <label class="opt radio"><input type="radio" name="plattform" data-save="plattform" value="Ikke bestemt"><span class="box"></span><span>Ikke bestemt ennå</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="f-num">02.6</div>
+        <div class="f-label">Når skal butikken åpne?</div>
+        <div class="f-input"><input type="text" data-save="lansering" placeholder="f.eks. januar 2027"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 KARAKTER -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">03</div>
+      <div class="section-title-col">
+        <div class="section-eyebrow">Del 03</div>
+        <h2 class="section-title"><em>Karakter.</em></h2>
+      </div>
+      <div class="section-intro">
+        <p>Klikk et punkt på hver skala. Hvor hører merket hjemme? <strong>Midten</strong> betyr vet ikke eller spiller ingen rolle.</p>
+      </div>
+    </div>
+    <div class="scales">
+      <div class="scale-row">
+        <div class="s-num">03.1</div>
+        <div class="scale-body">
+          <div class="left-label">Klassisk<span class="pole">Tidløs, trygg</span></div>
+          <div class="scale" data-save="skala_klassisk_moderne"><span class="pt" data-val="1"></span><span class="pt" data-val="2"></span><span class="pt" data-val="3"></span><span class="pt" data-val="4"></span><span class="pt" data-val="5"></span></div>
+          <div class="right-label">Moderne<span class="pole">Frisk, nytenkende</span></div>
+        </div>
+      </div>
+      <div class="scale-row">
+        <div class="s-num">03.2</div>
+        <div class="scale-body">
+          <div class="left-label">Enkel<span class="pole">Ren, minimalistisk</span></div>
+          <div class="scale" data-save="skala_enkel_rik"><span class="pt" data-val="1"></span><span class="pt" data-val="2"></span><span class="pt" data-val="3"></span><span class="pt" data-val="4"></span><span class="pt" data-val="5"></span></div>
+          <div class="right-label">Rik<span class="pole">Detaljert, dekorativ</span></div>
+        </div>
+      </div>
+      <div class="scale-row">
+        <div class="s-num">03.3</div>
+        <div class="scale-body">
+          <div class="left-label">Rolig<span class="pole">Dempet, behersket</span></div>
+          <div class="scale" data-save="skala_rolig_energisk"><span class="pt" data-val="1"></span><span class="pt" data-val="2"></span><span class="pt" data-val="3"></span><span class="pt" data-val="4"></span><span class="pt" data-val="5"></span></div>
+          <div class="right-label">Energisk<span class="pole">Leken, med trøkk</span></div>
+        </div>
+      </div>
+      <div class="scale-row">
+        <div class="s-num">03.4</div>
+        <div class="scale-body">
+          <div class="left-label">Eksklusiv<span class="pole">Premium, få og gode</span></div>
+          <div class="scale" data-save="skala_eksklusiv_folkelig"><span class="pt" data-val="1"></span><span class="pt" data-val="2"></span><span class="pt" data-val="3"></span><span class="pt" data-val="4"></span><span class="pt" data-val="5"></span></div>
+          <div class="right-label">Folkelig<span class="pole">Tilgjengelig, for alle</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="fields">
+      <div class="field">
+        <div class="f-num">03.5</div>
+        <div class="f-label">Tre ord merket skal føles som</div>
+        <div class="f-input"><input type="text" data-save="tre_ord" placeholder="f.eks. trygg, leken, tydelig"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 VISUELL RETNING -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">04</div>
+      <div class="section-title-col">
+        <div class="section-eyebrow">Del 04</div>
+        <h2 class="section-title">Visuell <em>retning.</em></h2>
+      </div>
+      <div class="section-intro">
+        <p>Referanser sier mer enn tusen ord. Gjerne fra en <strong>helt annen bransje</strong>.</p>
+      </div>
+    </div>
+    <div class="fields">
+      <div class="field">
+        <div class="f-num">04.1</div>
+        <div class="f-label">2-3 merker dere liker<span class="hint">Lenker eller navn</span></div>
+        <div class="f-input is-block"><textarea data-save="referanser" placeholder="Hva liker dere ved dem?"></textarea></div>
+      </div>
+      <div class="field">
+        <div class="f-num">04.2</div>
+        <div class="f-label">Noe dere vil styre unna?</div>
+        <div class="f-input is-block"><textarea data-save="unngaa" placeholder="Uttrykk, farger eller merker dere ikke liker"></textarea></div>
+      </div>
+      <div class="field">
+        <div class="f-num">04.3</div>
+        <div class="f-label">Eget ikon?<span class="hint">Et symbol som kan stå alene: profilbilde, favicon, emballasje</span></div>
+        <div class="f-input is-block">
+          <div class="options-list">
+            <label class="opt radio"><input type="radio" name="ikon" data-save="ikon" value="Ja, eget ikon"><span class="box"></span><span>Ja, vi ønsker et eget ikon</span></label>
+            <label class="opt radio"><input type="radio" name="ikon" data-save="ikon" value="Bare navnetrekk"><span class="box"></span><span>Nei, et navnetrekk holder</span></label>
+            <label class="opt radio"><input type="radio" name="ikon" data-save="ikon" value="Usikker"><span class="box"></span><span>Usikker, anbefal meg</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="f-num">04.4</div>
+        <div class="f-label">Farger<span class="hint">Ønsker eller vil unngå</span></div>
+        <div class="f-input"><input type="text" data-save="farger" placeholder="f.eks. gjerne grønt, helst ikke rosa"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 BRUK -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">05</div>
+      <div class="section-title-col">
+        <div class="section-eyebrow">Del 05</div>
+        <h2 class="section-title">Hvor logoen <em>skal brukes.</em></h2>
+      </div>
+      <div class="section-intro">
+        <p>Kryss av alt som er aktuelt. Det avgjør hvilke <strong>versjoner og filer</strong> dere får.</p>
+      </div>
+    </div>
+    <div class="group-row">
+      <div class="g-num">05.1</div>
+      <div class="g-label"><div class="title">Flater</div><div class="hint">Flere valg mulig</div></div>
+      <div class="g-body">
+        <div class="options-list">
+          <label class="opt"><input type="checkbox" data-save="bruk_nettbutikk" checked><span class="box"></span><span>Nettbutikk</span></label>
+          <label class="opt"><input type="checkbox" data-save="bruk_some"><span class="box"></span><span>Sosiale medier (Instagram, Facebook, TikTok)</span></label>
+          <label class="opt"><input type="checkbox" data-save="bruk_emballasje"><span class="box"></span><span>Emballasje og pakker</span></label>
+          <label class="opt"><input type="checkbox" data-save="bruk_klistremerker"><span class="box"></span><span>Klistremerker og etiketter</span></label>
+          <label class="opt"><input type="checkbox" data-save="bruk_klaer"><span class="box"></span><span>Klær og merch</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="fields">
+      <div class="field">
+        <div class="f-num">05.2</div>
+        <div class="f-label">Andre flater?</div>
+        <div class="f-input"><input type="text" data-save="bruk_annet" placeholder="f.eks. bil, skilt, messe"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 OMFANG -->
+  <section>
+    <div class="section-head">
+      <div class="section-num">06</div>
+      <div class="section-title-col">
+        <div class="section-eyebrow">Del 06</div>
+        <h2 class="section-title">Omfang og <em>budsjett.</em></h2>
+      </div>
+      <div class="section-intro">
+        <p>Logo starter fra 5 900 kr, logo med en enkel profil fra 7 999 kr (eks. mva). Budsjettet hjelper meg å foreslå <strong>riktig omfang</strong>.</p>
+      </div>
+    </div>
+    <div class="fields">
+      <div class="field">
+        <div class="f-num">06.1</div>
+        <div class="f-label">Hva trenger dere?</div>
+        <div class="f-input is-block">
+          <div class="options-list">
+            <label class="opt radio"><input type="radio" name="omfang" data-save="omfang" value="Bare logo"><span class="box"></span><span><strong>Bare logo</strong>, 2-3 retninger, to runder justeringer, ferdige filer</span></label>
+            <label class="opt radio"><input type="radio" name="omfang" data-save="omfang" value="Logo + enkel profil"><span class="box"></span><span><strong>Logo og enkel profil</strong>, i tillegg farger, fonter og et par maler</span></label>
+            <label class="opt radio"><input type="radio" name="omfang" data-save="omfang" value="Usikker"><span class="box"></span><span>Usikker, anbefal meg</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="f-num">06.2</div>
+        <div class="f-label">Budsjettramme<span class="hint">Eks. mva</span></div>
+        <div class="f-input is-block">
+          <div class="options-list">
+            <label class="opt radio"><input type="radio" name="budsjett" data-save="budsjett" value="Under 6 000"><span class="box"></span><span>Under 6 000 kr</span></label>
+            <label class="opt radio"><input type="radio" name="budsjett" data-save="budsjett" value="6 000-8 000"><span class="box"></span><span>6 000-8 000 kr</span></label>
+            <label class="opt radio"><input type="radio" name="budsjett" data-save="budsjett" value="8 000-12 000"><span class="box"></span><span>8 000-12 000 kr</span></label>
+            <label class="opt radio"><input type="radio" name="budsjett" data-save="budsjett" value="Over 12 000"><span class="box"></span><span>Over 12 000 kr</span></label>
+            <label class="opt radio"><input type="radio" name="budsjett" data-save="budsjett" value="Vet ikke"><span class="box"></span><span>Vet ikke ennå</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="f-num">06.3</div>
+        <div class="f-label">Hvem tar den endelige avgjørelsen?</div>
+        <div class="f-input"><input type="text" data-save="beslutning" placeholder="Navn og rolle"></div>
+      </div>
+      <div class="field">
+        <div class="f-num">06.4</div>
+        <div class="f-label">Noe annet jeg bør vite?</div>
+        <div class="f-input is-block"><textarea class="tall" data-save="kommentar" placeholder="Frister, ønsker, spørsmål"></textarea></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="actions-bar">
+      <div class="save-status">
+        <span class="dot"></span>
+        <span id="saveStatus">Lagres automatisk</span>
+      </div>
+      <div class="actions">
+        <button class="btn ghost" id="btnReset">Tøm</button>
+        <button class="btn" id="btnPrint">Last ned PDF</button>
+        <button class="btn primary" id="btnSubmit">Send inn →</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div>
+      <div class="closing-eyebrow">Til slutt</div>
+      <div class="closing-quote">
+        Takk for at du tok deg tid. Jeg går gjennom svarene og sender dere et <span class="accent">konkret forslag med pris</span> innen to arbeidsdager.
+      </div>
+    </div>
+    <div class="closing-right">
+      <div class="signature">
+        <div class="label">Med vennlig hilsen</div>
+        <div class="name">Kacper Kij, GMERK</div>
+        <div class="contact">
+          Haugesund<br>
+          968 12 054<br>
+          kontakt@gmerk.no<br>
+          gmerk.no
+        </div>
+      </div>
+      <div class="closing-meta">
+        <span>GMERK · 2026</span>
+        <span>SMÅ FIRMAER, STORE INNTRYKK.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sent-wrap">
+    <div class="sent" id="sent">
+      <h2>Takk, <em>Bendik.</em></h2>
+      <p>Svarene er mottatt. Jeg går gjennom dem og sender dere et konkret forslag med pris innen to arbeidsdager.</p>
+    </div>
+  </section>
 
 </div>
 
+<div class="float-bar">
+  <button class="btn" onclick="window.print()">Last ned PDF</button>
+  <button class="btn primary" onclick="document.getElementById('btnSubmit').click()">Send inn →</button>
+</div>
+
 <script>
-  const form = document.getElementById('brief');
-  const btn = document.getElementById('submitBtn');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Sender…';
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
+(function() {
+  const STORAGE_KEY = 'gmerk_brief_reachmedia_v1';
+  const ACCESS_KEY = 'd3efca1c-05c8-4d2c-bbbd-48b705f7e4d5';
+
+  let state = {};
+  try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { state = {}; }
+
+  const saveStatus = document.getElementById('saveStatus');
+  let saveTimer;
+  function persist() {
+    clearTimeout(saveTimer);
+    saveStatus.textContent = 'Lagrer…';
+    saveTimer = setTimeout(() => {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        const t = new Date().toLocaleTimeString('nb-NO', {hour:'2-digit', minute:'2-digit'});
+        saveStatus.textContent = 'Lagret · ' + t;
+      } catch(e) { saveStatus.textContent = 'Kunne ikke lagre'; }
+    }, 300);
+  }
+
+  function grow(el) { el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px'; }
+
+  // Prefilled values and default checks count as answers too
+  document.querySelectorAll('input[data-save], textarea[data-save]').forEach(el => {
+    const key = el.dataset.save;
+    if (el.type === 'checkbox') {
+      if (key in state) el.checked = !!state[key]; else state[key] = el.checked;
+      el.addEventListener('change', () => { state[key] = el.checked; persist(); });
+    } else if (el.type === 'radio') {
+      if (state[key] === el.value) el.checked = true;
+      el.addEventListener('change', () => { if (el.checked) { state[key] = el.value; persist(); } });
+    } else {
+      if (key in state) el.value = state[key]; else if (el.value) state[key] = el.value;
+      el.addEventListener('input', () => {
+        state[key] = el.value; persist();
+        if (el.tagName === 'TEXTAREA') grow(el);
       });
-      const data = await res.json();
-      if (data.success) {
-        document.getElementById('formview').style.display = 'none';
-        document.getElementById('done').style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        throw new Error(data.message || 'Feil');
-      }
-    } catch (err) {
-      btn.disabled = false;
-      btn.textContent = 'Send inn';
-      alert('Noe gikk galt ved sending. Prøv igjen, eller send svarene på e-post til kontakt@gmerk.no.');
+      if (el.tagName === 'TEXTAREA' && el.value) requestAnimationFrame(() => grow(el));
     }
   });
+
+  document.querySelectorAll('.scale').forEach(scale => {
+    const key = scale.dataset.save;
+    const pts = scale.querySelectorAll('.pt');
+    const show = v => pts.forEach(p => p.classList.toggle('active', p.dataset.val === String(v)));
+    if (state[key]) show(state[key]);
+    pts.forEach(p => p.addEventListener('click', () => { show(p.dataset.val); state[key] = p.dataset.val; persist(); }));
+  });
+
+  document.getElementById('btnReset').addEventListener('click', () => {
+    if (!confirm('Vil du tømme alle svarene? Dette kan ikke angres.')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  });
+  document.getElementById('btnPrint').addEventListener('click', () => window.print());
+
+  const labels = {
+    navn: 'Navn', bedrift: 'Bedrift', telefon: 'Telefon', epost: 'E-post',
+    produkter: 'Hva skal de selge', kunde: 'Kunden',
+    navn_status: 'Navn på butikken', navn_forslag: 'Navn / forslag / domene',
+    plattform: 'Plattform', lansering: 'Åpning',
+    skala_klassisk_moderne: 'Klassisk (1) - Moderne (5)',
+    skala_enkel_rik: 'Enkel (1) - Rik (5)',
+    skala_rolig_energisk: 'Rolig (1) - Energisk (5)',
+    skala_eksklusiv_folkelig: 'Eksklusiv (1) - Folkelig (5)',
+    tre_ord: 'Tre ord', referanser: 'Referanser', unngaa: 'Styre unna',
+    ikon: 'Eget ikon', farger: 'Farger',
+    bruk_nettbutikk: 'Bruk: nettbutikk', bruk_some: 'Bruk: SoMe', bruk_emballasje: 'Bruk: emballasje',
+    bruk_klistremerker: 'Bruk: klistremerker', bruk_klaer: 'Bruk: klær', bruk_annet: 'Bruk: annet',
+    omfang: 'Omfang', budsjett: 'Budsjett', beslutning: 'Beslutning', kommentar: 'Kommentar'
+  };
+
+  const btn = document.getElementById('btnSubmit');
+  btn.addEventListener('click', async () => {
+    const fd = new FormData();
+    fd.append('access_key', ACCESS_KEY);
+    fd.append('subject', 'Reach Media: logobrief nettbutikk besvart');
+    fd.append('from_name', 'Reach Media brief-skjema');
+    if (state.epost) fd.append('replyto', state.epost);
+    for (const k in labels) {
+      let v = state[k];
+      if (v === undefined || v === '' || v === false) continue;
+      if (v === true) v = 'Ja';
+      fd.append(labels[k], v);
+    }
+    btn.disabled = true; btn.textContent = 'Sender…';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Accept': 'application/json' }, body: fd });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.message || 'Feil');
+      document.body.classList.add('is-sent');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      btn.disabled = false; btn.textContent = 'Send inn →';
+      alert('Noe gikk galt ved sending. Prøv igjen, eller last ned PDF og send den til kontakt@gmerk.no.');
+    }
+  });
+
+  if (Object.keys(state).length > 0) saveStatus.textContent = 'Lagres automatisk';
+})();
 </script>
 </body>
 </html>
