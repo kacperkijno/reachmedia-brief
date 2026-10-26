@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logobrief nettbutikk · Reach Media x GMERK</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --bg:#f4f3f1;
+    --card:#ffffff;
+    --ink:#141414;
+    --muted:#6f6b66;
+    --line:#e4e1dd;
+    --accent:rgb(255,74,28);
+    --radius:14px;
+    --maxw:720px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.55;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    padding:0 20px;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:56px 0 96px}
+  .brand{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:40px}
+  h1{font-weight:300;font-size:2.35rem;line-height:1.12;letter-spacing:-.01em;margin-bottom:20px}
+  h1 span{color:var(--accent)}
+  .intro{color:var(--muted);font-size:1.02rem;max-width:56ch;margin-bottom:8px}
+  .intro + .intro{margin-top:14px}
+  form{margin-top:48px}
+  section{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:32px 30px;
+    margin-bottom:20px;
+  }
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+  .sec-num{font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.08em;padding-top:3px;min-width:22px}
+  .sec-title{font-weight:400;font-size:1.28rem;letter-spacing:-.01em}
+  .sec-sub{color:var(--muted);font-size:.9rem;margin:-14px 0 22px 36px}
+  .phase-label{
+    display:inline-block;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);border:1px solid var(--line);border-radius:999px;
+    padding:6px 14px;margin:44px 0 4px 2px;background:var(--card);
+  }
+  .field{margin-bottom:22px}
+  .field:last-child{margin-bottom:0}
+  label.q{display:block;font-size:.98rem;margin-bottom:9px;font-weight:500}
+  .hint{color:var(--muted);font-size:.85rem;font-weight:400;margin-top:2px}
+  input[type=text],input[type=tel],input[type=email],input[type=url],textarea{
+    width:100%;font-family:inherit;font-size:.98rem;color:var(--ink);
+    background:#fbfaf9;border:1px solid var(--line);border-radius:9px;
+    padding:12px 14px;transition:border-color .15s,background .15s;
+  }
+  textarea{resize:vertical;min-height:82px}
+  input:focus,textarea:focus{outline:none;border-color:var(--accent);background:#fff}
+  input::placeholder,textarea::placeholder{color:#b3aea8}
+
+  .scale{display:flex;gap:6px;flex-wrap:wrap;align-items:stretch;margin-top:4px}
+  .scale .ends{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted);width:100%;margin-bottom:8px}
+  .opt{position:relative;flex:1 1 auto}
+  .opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+  .opt span{
+    display:block;text-align:center;font-size:.9rem;padding:10px 8px;
+    border:1px solid var(--line);border-radius:8px;background:#fbfaf9;cursor:pointer;
+    transition:.12s;line-height:1.2;
+  }
+  .opt input:checked + span{border-color:var(--accent);background:var(--accent);color:#fff}
+  .opt input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+
+  .stack{display:flex;flex-direction:column;gap:8px}
+  .stack .opt{flex:none}
+  .stack .opt span{text-align:left}
+
+  .checks{display:flex;flex-wrap:wrap;gap:8px}
+  .checks .opt{flex:0 1 auto}
+  .checks .opt span{padding:10px 16px}
+
+  .btn{
+    appearance:none;border:none;cursor:pointer;font-family:inherit;
+    background:var(--accent);color:#fff;font-size:1rem;font-weight:500;
+    padding:15px 40px;border-radius:999px;margin-top:12px;
+    transition:transform .12s,opacity .15s;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn:active{transform:translateY(0)}
+  .btn:disabled{opacity:.5;cursor:default;transform:none}
+
+  .foot{color:var(--muted);font-size:.85rem;margin-top:18px}
+  .hp{position:absolute;left:-9999px;top:-9999px}
+
+  #done{display:none;text-align:center;padding:70px 20px}
+  #done h2{font-weight:300;font-size:2rem;margin-bottom:14px}
+  #done p{color:var(--muted);max-width:44ch;margin:0 auto}
+
+  @media(max-width:560px){
+    .wrap{padding:40px 0 72px}
+    h1{font-size:1.9rem}
+    section{padding:26px 20px}
+    .sec-sub{margin-left:0}
+    .scale{gap:5px}
+    .opt span{font-size:.82rem;padding:9px 4px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">GMERK</div>
+
+  <div id="formview">
+    <h1>Logo til nettbutikken</h1>
+    <p class="intro">Takk for at du tar deg tid. Her er noen korte spørsmål om nettbutikken og hva dere ser for dere. Med svarene kan jeg gi dere en presis pris og et konkret forslag.</p>
+    <p class="intro">Det tar 5-10 minutter. Svar så kort du vil, og hopp over det dere ikke vet ennå.</p>
+
+    <form id="brief" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="d3efca1c-05c8-4d2c-bbbd-48b705f7e4d5">
+      <input type="hidden" name="subject" value="Reach Media: logobrief nettbutikk besvart">
+      <input type="hidden" name="from_name" value="Reach Media brief-skjema">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+      <section>
+        <div class="sec-head"><div class="sec-num">01</div><div class="sec-title">Kontakt</div></div>
+        <div class="sec-sub">Ferdig utfylt. Rett opp om noe er feil.</div>
+        <div class="field"><label class="q">Navn</label><input type="text" name="Navn" value="Bendik Tannum"></div>
+        <div class="field"><label class="q">Bedrift</label><input type="text" name="Bedrift" value="Reach Media"></div>
+        <div class="field"><label class="q">E-post</label><input type="email" name="Epost" value="bendik@reachmedia.no"></div>
+        <div class="field"><label class="q">Telefon</label><input type="tel" name="Telefon" value="45 86 26 46"></div>
+      </section>
+
+      <section>
+        <div class="sec-head"><div class="sec-num">02</div><div class="sec-title">Nettbutikken</div></div>
+        <div class="field">
+          <label class="q">Hva skal nettbutikken selge?</label>
+          <textarea name="Produkter" placeholder="Produkter, kategori, prisnivå"></textarea>
+        </div>
+        <div class="field">
+          <label class="q">Hvem er kunden?</label>
+          <textarea name="Kunde" placeholder="Hvem kjøper, og hvorfor hos dere?"></textarea>
+        </div>
+        <div class="field">
+          <label class="q">Har butikken et navn?</label>
+          <div class="stack">
+            <label class="opt"><input type="radio" name="Navn_status" value="Navnet er klart"><span>Ja, navnet er klart</span></label>
+            <label class="opt"><input type="radio" name="Navn_status" value="Har forslag"><span>Vi har noen forslag</span></label>
+            <label class="opt"><input type="radio" name="Navn_status" value="Trenger hjelp med navn"><span>Nei, vi trenger hjelp med navn også</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="q">Navn eller forslag <span class="hint">Og domene, hvis dere har det.</span></label><input type="text" name="Navn_forslag"></div>
+        <div class="field">
+          <label class="q">Plattform</label>
+          <div class="checks">
+            <label class="opt"><input type="radio" name="Plattform" value="Shopify"><span>Shopify</span></label>
+            <label class="opt"><input type="radio" name="Plattform" value="WooCommerce"><span>WooCommerce</span></label>
+            <label class="opt"><input type="radio" name="Plattform" value="Annen"><span>Annen</span></label>
+            <label class="opt"><input type="radio" name="Plattform" value="Ikke bestemt"><span>Ikke bestemt</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="q">Når skal butikken åpne?</label><input type="text" name="Lansering" placeholder="f.eks. januar 2027"></div>
+      </section>
+
+      <section>
+        <div class="sec-head"><div class="sec-num">03</div><div class="sec-title">Karakter</div></div>
+        <div class="sec-sub">Sett kryss der dere ser merket.</div>
+
+        <div class="field"><div class="scale">
+          <div class="ends"><span>Klassisk</span><span>Moderne</span></div>
+          <label class="opt"><input type="radio" name="Klassisk_moderne" value="1"><span>1</span></label>
+          <label class="opt"><input type="radio" name="Klassisk_moderne" value="2"><span>2</span></label>
+          <label class="opt"><input type="radio" name="Klassisk_moderne" value="3"><span>3</span></label>
+          <label class="opt"><input type="radio" name="Klassisk_moderne" value="4"><span>4</span></label>
+          <label class="opt"><input type="radio" name="Klassisk_moderne" value="5"><span>5</span></label>
+        </div></div>
+
+        <div class="field"><div class="scale">
+          <div class="ends"><span>Enkelt og rent</span><span>Rikt og detaljert</span></div>
+          <label class="opt"><input type="radio" name="Enkel_rik" value="1"><span>1</span></label>
+          <label class="opt"><input type="radio" name="Enkel_rik" value="2"><span>2</span></label>
+          <label class="opt"><input type="radio" name="Enkel_rik" value="3"><span>3</span></label>
+          <label class="opt"><input type="radio" name="Enkel_rik" value="4"><span>4</span></label>
+          <label class="opt"><input type="radio" name="Enkel_rik" value="5"><span>5</span></label>
+        </div></div>
+
+        <div class="field"><div class="scale">
+          <div class="ends"><span>Rolig</span><span>Energisk</span></div>
+          <label class="opt"><input type="radio" name="Rolig_energisk" value="1"><span>1</span></label>
+          <label class="opt"><input type="radio" name="Rolig_energisk" value="2"><span>2</span></label>
+          <label class="opt"><input type="radio" name="Rolig_energisk" value="3"><span>3</span></label>
+          <label class="opt"><input type="radio" name="Rolig_energisk" value="4"><span>4</span></label>
+          <label class="opt"><input type="radio" name="Rolig_energisk" value="5"><span>5</span></label>
+        </div></div>
+
+        <div class="field"><div class="scale">
+          <div class="ends"><span>Eksklusiv</span><span>Folkelig</span></div>
+          <label class="opt"><input type="radio" name="Eksklusiv_folkelig" value="1"><span>1</span></label>
+          <label class="opt"><input type="radio" name="Eksklusiv_folkelig" value="2"><span>2</span></label>
+          <label class="opt"><input type="radio" name="Eksklusiv_folkelig" value="3"><span>3</span></label>
+          <label class="opt"><input type="radio" name="Eksklusiv_folkelig" value="4"><span>4</span></label>
+          <label class="opt"><input type="radio" name="Eksklusiv_folkelig" value="5"><span>5</span></label>
+        </div></div>
+
+        <div class="field">
+          <label class="q">Tre ord merket skal føles som</label>
+          <input type="text" name="Tre_ord" placeholder="f.eks. trygg, leken, tydelig">
+        </div>
+      </section>
+
+      <section>
+        <div class="sec-head"><div class="sec-num">04</div><div class="sec-title">Visuell retning</div></div>
+        <div class="field">
+          <label class="q">2-3 merker eller nettbutikker dere liker <span class="hint">Lenker eller navn. Gjerne fra en helt annen bransje.</span></label>
+          <textarea name="Referanser"></textarea>
+        </div>
+        <div class="field">
+          <label class="q">Noe dere vil styre unna?</label>
+          <textarea name="Anti_referanser" placeholder="Uttrykk, farger eller merker dere ikke liker"></textarea>
+        </div>
+        <div class="field">
+          <label class="q">Trenger dere et eget ikon som kan stå alene? <span class="hint">Til profilbilde, favicon, emballasje.</span></label>
+          <div class="stack">
+            <label class="opt"><input type="radio" name="Ikon" value="Ja"><span>Ja, vi ønsker et eget ikon</span></label>
+            <label class="opt"><input type="radio" name="Ikon" value="Bare navnetrekk"><span>Nei, et navnetrekk holder</span></label>
+            <label class="opt"><input type="radio" name="Ikon" value="Usikker"><span>Usikker, anbefal meg</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="q">Farger dere ønsker eller vil unngå?</label><input type="text" name="Farger"></div>
+      </section>
+
+      <section>
+        <div class="sec-head"><div class="sec-num">05</div><div class="sec-title">Logoen skal brukes på</div></div>
+        <div class="checks">
+          <label class="opt"><input type="checkbox" name="Bruk_nettbutikk" value="Nettbutikk" checked><span>Nettbutikk</span></label>
+          <label class="opt"><input type="checkbox" name="Bruk_instagram" value="Instagram"><span>Instagram</span></label>
+          <label class="opt"><input type="checkbox" name="Bruk_facebook" value="Facebook"><span>Facebook</span></label>
+          <label class="opt"><input type="checkbox" name="Bruk_tiktok" value="TikTok"><span>TikTok</span></label>
+          <label class="opt"><input type="checkbox" name="Bruk_emballasje" value="Emballasje"><span>Emballasje</span></label>
+          <label class="opt"><input type="checkbox" name="Bruk_klistremerker" value="Klistremerker"><span>Klistremerker</span></label>
+          <label class="opt"><input type="checkbox" name="Bruk_klaer" value="Klær"><span>Klær</span></label>
+        </div>
+        <div class="field" style="margin-top:16px"><label class="q">Andre flater?</label><input type="text" name="Bruk_annet"></div>
+      </section>
+
+      <section>
+        <div class="sec-head"><div class="sec-num">06</div><div class="sec-title">Omfang</div></div>
+        <div class="field">
+          <label class="q">Hva trenger dere?</label>
+          <div class="stack">
+            <label class="opt"><input type="radio" name="Omfang" value="Bare logo"><span>Bare logo</span></label>
+            <label class="opt"><input type="radio" name="Omfang" value="Logo + enkel profil"><span>Logo og en enkel profil (farger, fonter, et par maler)</span></label>
+            <label class="opt"><input type="radio" name="Omfang" value="Usikker"><span>Usikker, anbefal meg</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label class="q">Har dere en budsjettramme? <span class="hint">Eks. mva. Hjelper meg å foreslå riktig omfang.</span></label>
+          <div class="stack">
+            <label class="opt"><input type="radio" name="Budsjett" value="Under 6 000"><span>Under 6 000 kr</span></label>
+            <label class="opt"><input type="radio" name="Budsjett" value="6 000-8 000"><span>6 000-8 000 kr</span></label>
+            <label class="opt"><input type="radio" name="Budsjett" value="8 000-12 000"><span>8 000-12 000 kr</span></label>
+            <label class="opt"><input type="radio" name="Budsjett" value="Over 12 000"><span>Over 12 000 kr</span></label>
+            <label class="opt"><input type="radio" name="Budsjett" value="Vet ikke"><span>Vet ikke ennå</span></label>
+          </div>
+        </div>
+        <div class="field"><label class="q">Hvem tar den endelige avgjørelsen?</label><input type="text" name="Beslutning"></div>
+        <div class="field"><label class="q">Noe annet jeg bør vite?</label><textarea name="Kommentar"></textarea></div>
+      </section>
+
+      <button type="submit" class="btn" id="submitBtn">Send inn</button>
+      <p class="foot">Svarene går rett til Kacper i GMERK. Spørsmål? Ring 968 12 054.</p>
+    </form>
+  </div>
+
+  <div id="done">
+    <h2>Takk, Bendik.</h2>
+    <p>Svarene er mottatt. Jeg går gjennom dem og sender dere et konkret forslag med pris.</p>
+  </div>
+
+</div>
+
+<script>
+  const form = document.getElementById('brief');
+  const btn = document.getElementById('submitBtn');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Sender…';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById('formview').style.display = 'none';
+        document.getElementById('done').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        throw new Error(data.message || 'Feil');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Send inn';
+      alert('Noe gikk galt ved sending. Prøv igjen, eller send svarene på e-post til kontakt@gmerk.no.');
+    }
+  });
+</script>
+</body>
+</html>
